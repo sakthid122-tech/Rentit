@@ -7,42 +7,43 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-}
-
 model Property {
-  id              Int      @id @default(autoincrement())
+  id Int @id @default(autoincrement())
 
-  propertyType    String
-  propertyName    String
-  bhkType         String
+  propertyType String
+  propertyName String
+  bhkType      String
 
-  floorNumber     Int
-  totalFloors     Int
+  floorNumber Int
+  totalFloors Int
 
-  description     String?
+  description String?
 
   preferredTenant String
 
-  builtUpArea     Float
-  propertyAge     String
-  facing          String
-  noticePeriod    Int
+  builtUpArea  Float
+  propertyAge  String
+  facing       String
+  noticePeriod Int
 
-  occupancy       String
-  availableFrom   DateTime
+  occupancy     String
+  availableFrom DateTime
 
-  location        String
-  street          String
-  locality        String
-  landmark        String?
-  pincode         String
+  location String
+  street   String
+  locality String
+  landmark String?
+  pincode  String
 
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Otp {
+  id        String   @id @default(uuid())
+  mobile    String
+  email     String
+  otp       String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
 }
