@@ -53,7 +53,6 @@ export class AuthService {
       throw new UnauthorizedException("OTP expired");
     }
 
-    // Only OTP verify -> token generate
     const token = this.jwtService.sign({
       mobile: latestOtp.mobile,
       email: latestOtp.email,
